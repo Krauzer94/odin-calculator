@@ -4,12 +4,43 @@
     margin: 0;
 }
 
+/* Main defaults */
 body {
-    font-family: Cantarell, "Segoe UI";
-    background-color: #707070;
+    font-family: monospace;
+    background-color: #0d1117;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
+
+/* Top and bottom */
+header,
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 12px, 0px;
+}
+
+/* Container body */
+.container {
+    background-color: #222831;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Titles and texts */
+h1,
+h2 {
+    color: #F2F2F2;
+    padding: 24px 0px;
+    font-weight: normal;
+}
+
+h1 { font-size: 48px; }
+h2 { font-size: 18px; }
+a { color: cyan; }
