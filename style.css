@@ -44,3 +44,14 @@ h2 {
 h1 { font-size: 48px; }
 h2 { font-size: 18px; }
 a { color: cyan; }
+
+/* Device body */
+.main-frame {
+    height: 600px;
+    width: 450px;
+    border: 2px solid white;
+    border-radius: 12px;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+}
