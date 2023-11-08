@@ -26,8 +26,9 @@ function dvd(a, b) {
 function operate(op, a, b) {
     let res = 0; // For later return
     a = Number(prompt('First number:'));
-    b = Number(prompt('Second number:'));
     op = prompt('Chose one operation:\n( + ) for a sum\n( - ) for a subtraction\n( * ) for a multiplication\n( / ) for a division');
+    b = Number(prompt('Second number:'));
+    
     switch (op) {
         case '+':
             res = add(a, b);
