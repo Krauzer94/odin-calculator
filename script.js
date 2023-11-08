@@ -22,13 +22,31 @@ function dvd(a, b) {
     return a / b;
 }
 
-// Test numbers
-let a = 1;
-let b = 2;
+// Two number math operation
+function operate(op, a, b) {
+    let res = 0; // For later return
+    a = Number(prompt('First number:'));
+    b = Number(prompt('Second number:'));
+    op = prompt('Chose one operation:\n( + ) for a sum\n( - ) for a subtraction\n( * ) for a multiplication\n( / ) for a division');
+    switch (op) {
+        case '+':
+            res = add(a, b);
+            return alert(`${a} ${op} ${b} = ${res}`);
+            break;
+        case '-':
+            res = sub(a, b);
+            return alert(`${a} ${op} ${b} = ${res}`);
+            break;
+        case '*':
+            res = mul(a, b);
+            return alert(`${a} ${op} ${b} = ${res}`);
+            break;
+        case '/':
+            res = dvd(a, b);
+            return alert(`${a} ${op} ${b} = ${res}`);
+            break;
+    }
+}
 
-// Log validation
-console.log(`Numbers: 1 and 2`)
-console.log(`Adding: ${add(a, b)}`);
-console.log(`Subtracting: ${sub(a, b)}`);
-console.log(`Multiplying: ${mul(a, b)}`);
-console.log(`DIviding: ${dvd(a, b)}`);
+// Validating
+operate();
