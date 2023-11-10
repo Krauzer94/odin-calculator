@@ -2,13 +2,12 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    border: 1px solid red;
 }
 
 /* Main defaults */
 body {
     font-family: monospace;
-    background-color: #0d1117;
+    background-color: #222831;
     margin: 0;
     padding: 0;
     display: flex;
