@@ -2,6 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    border: 1px solid red;
 }
 
 /* Main defaults */
@@ -47,11 +48,50 @@ a { color: cyan; }
 
 /* Device body */
 .main-frame {
-    height: 600px;
-    width: 450px;
-    border: 2px solid white;
+    height: 525px;
+    width: 425px;
+    border: 2px solid lightgray;
     border-radius: 12px;
     background-color: gray;
     display: flex;
     justify-content: center;
+}
+
+.calc-body {
+    padding: 20px;
+}
+
+/* Result display */
+.display {
+    border: 2px solid black;
+    border-radius: 6px;
+    background-color: lightgray;
+    min-width: 385px;
+    height: 25%;
+}
+
+/* Buttons main defaults */
+button {
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 14px 20px;
+    font-size: 20px;
+}
+
+/* Operation buttons */
+.op-buttons {
+    height: 75%;
+    padding: 12px 0px;
+}
+
+.clear-btn, .delete-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Number buttons */
+.num-buttons {
+    display: flex;
+    flex-flow: row wrap;
 }

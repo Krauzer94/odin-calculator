@@ -50,4 +50,4 @@ function operate(op, a, b) {
 }
 
 // Validating
-operate();
+// operate();
