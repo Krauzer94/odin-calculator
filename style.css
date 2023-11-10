@@ -57,7 +57,7 @@ a { color: cyan; }
 }
 
 .calc-body {
-    padding: 14px;
+    padding: 14px 14px 12px 14px;
 }
 
 /* Result display */
@@ -87,7 +87,7 @@ button {
 .clear-delete {
     display: flex;
     justify-content: space-evenly;
-    padding: 8px 0px;
+    padding-top: 12px;
     gap: 8px;
     > button {
         width: 180px;
@@ -106,7 +106,7 @@ button {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    padding: 8px 0px;
+    padding-top: 12px;
     gap: 8px;
     flex: 1;
     > button {
