@@ -65,7 +65,7 @@ a { color: cyan; }
 }
 
 /* Result display */
-.display {
+.calc-display {
     font-family: 'Calculator';
     font-weight: 500;
     font-size: 76px;
@@ -79,6 +79,7 @@ a { color: cyan; }
 
 /* Buttons main defaults */
 button {
+    border: 2px solid black;
     border-radius: 6px;
     font-size: 24px;
     cursor: pointer;
@@ -90,7 +91,7 @@ button:hover {
 }
 
 button:active {
-    transform: translateY(4px);
+    background-color: darkgray;
 }
 
 /* Frame of buttons */
@@ -106,21 +107,36 @@ button:active {
     justify-content: space-evenly;
     padding-top: 12px;
     gap: 8px;
-    > button {
+
+    >button {
         width: 180px;
         height: 64px;
     }
-    > .clear-btn {
+
+    /* On active effects */
+
+    >.clear-btn {
         background-color: lightpink;
     }
-    > .clear-btn:hover {
+
+    >.clear-btn:hover {
         background-color: #F77B7B;
     }
-    > .delete-btn {
+
+    > .clear-btn:active {
+        background-color: #B43F46;
+    }
+
+    >.delete-btn {
         background-color: lightblue;
     }
-    > .delete-btn:hover {
+
+    >.delete-btn:hover {
         background-color: #08CEFF;
+    }
+
+    > .delete-btn:active {
+        background-color: #0087b5;
     }
 }
 
@@ -132,7 +148,8 @@ button:active {
     padding-top: 12px;
     gap: 8px;
     flex: 1;
-    > button {
+
+    >button {
         width: 86px;
         height: 68px;
     }
