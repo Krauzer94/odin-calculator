@@ -52,9 +52,9 @@ function operate(op, a, b) {
 // Validating
 // operate();
 
-// Button input into the display
+// Populate the display
 const calcDisplay = document.querySelector('.calc-display');
 const displayInput = document.querySelector('.num-buttons');
 displayInput.addEventListener('click', () => {
-    calcDisplay.textContent = displayInput.textContent;
+    calcDisplay.textContent = displayInput.querySelector('button').textContent;
 });
