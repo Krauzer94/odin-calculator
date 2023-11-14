@@ -69,3 +69,10 @@ digitNumbers.forEach(element => {
         }
     });
 });
+
+// Clear digit screen
+const clearBtn = document.querySelector('.clear-btn');
+clearBtn.addEventListener('click', () => {
+    calcDisplay.textContent = '';
+    calcDisplayValue = [];
+});
