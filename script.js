@@ -80,5 +80,6 @@ clearBtn.addEventListener('click', () => {
 // Erase single digits
 const deleteBtn = document.querySelector('.delete-btn');
 deleteBtn.addEventListener('click', () => {
-    calcDisplayValue.pop();
+    calcDisplay.textContent = calcDisplay.textContent.slice(0, -1);
+    calcDisplayValue = calcDisplayValue.slice(0, -1);
 });
