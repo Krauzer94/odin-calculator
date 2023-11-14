@@ -54,7 +54,9 @@ function operate(op, a, b) {
 
 // Populate the display
 const calcDisplay = document.querySelector('.calc-display');
-const displayInput = document.querySelector('.num-buttons');
-displayInput.addEventListener('click', () => {
-    calcDisplay.textContent = displayInput.querySelector('button').textContent;
+const displayValue = document.querySelectorAll('.num-buttons > button');
+displayValue.forEach(element => {
+    element.addEventListener('click', () => {
+        calcDisplay.textContent = element.textContent;
+    });
 });
