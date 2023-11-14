@@ -28,7 +28,7 @@ function operate(op, a, b) {
     a = Number(prompt('First number:'));
     op = prompt('Chose one operation:\n( + ) for a sum\n( - ) for a subtraction\n( * ) for a multiplication\n( / ) for a division');
     b = Number(prompt('Second number:'));
-    
+
     switch (op) {
         case '+':
             res = add(a, b);
@@ -52,11 +52,20 @@ function operate(op, a, b) {
 // Validating
 // operate();
 
+// Store display value
+let calcDisplayValue = [];
+
 // Populate the display
 const calcDisplay = document.querySelector('.calc-display');
-const displayValue = document.querySelectorAll('.num-buttons > button');
-displayValue.forEach(element => {
+const digitNumbers = document.querySelectorAll('#digit-numbers, #digit-symbols');
+digitNumbers.forEach(element => {
     element.addEventListener('click', () => {
-        calcDisplay.textContent = element.textContent;
+        // Validate digit limit
+        if (calcDisplayValue.length < 10) {
+            calcDisplayValue = calcDisplay.textContent + element.textContent;
+            calcDisplay.textContent = calcDisplayValue;
+        } else {
+            alert('No more digit space!');
+        }
     });
 });
