@@ -54,6 +54,8 @@ function operate(op, a, b) {
 
 // Store display value
 let calcDisplayValue = [];
+let firstDisplayNumber = 0;
+let secondDisplayNumber = 0;
 
 // Populate the display
 const calcDisplay = document.querySelector('.calc-display');
@@ -82,4 +84,14 @@ const deleteBtn = document.querySelector('.delete-btn');
 deleteBtn.addEventListener('click', () => {
     calcDisplay.textContent = calcDisplay.textContent.slice(0, -1);
     calcDisplayValue = calcDisplayValue.slice(0, -1);
+});
+
+// Finish the math operation
+const digitEquals = document.querySelector('#digit-equals');
+digitEquals.addEventListener('click', () => {
+    // TODO Figure how to find the first and second number
+    // ? Maybe split the string when an operator is clicked
+    let firstNumber = calcDisplayValue.textContent.slice();
+    let secondNumber = calcDisplayValue.textContent.slice();
+    operate();
 });
