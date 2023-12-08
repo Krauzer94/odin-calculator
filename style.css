@@ -65,7 +65,7 @@ a { color: cyan; }
 }
 
 /* Result display */
-.calc-display {
+.calc-screen {
     font-family: 'Calculator';
     font-weight: 500;
     font-size: 76px;

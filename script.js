@@ -22,7 +22,7 @@ function dvd(a, b) {
     return a / b;
 }
 
-// Two number math operation
+// Two number math operation / operand
 function operate(op, a, b) {
     let res = 0; // For later return
     a = Number(prompt('First number:'));
@@ -52,24 +52,26 @@ function operate(op, a, b) {
 // Validating
 // operate();
 
-// Clear digit screen
+// Reset screen values and display
 const clearBtn = document.querySelector('.clear-btn');
 clearBtn.addEventListener('click', () => {
     calcDisplay.textContent = '';
     calcDisplayValue = [];
+    operDisplay.textContent = '';
+    operDisplayValue = [];
 });
 
-// Erase single digits
+// Erase single inputted digits
 const deleteBtn = document.querySelector('.delete-btn');
 deleteBtn.addEventListener('click', () => {
     calcDisplay.textContent = calcDisplay.textContent.slice(0, -1);
     calcDisplayValue = calcDisplayValue.slice(0, -1);
 });
 
-// Store display number value
+// Store display input values
 let calcDisplayValue = [];
 
-// Populate the display
+// Populate the display screen
 const calcDisplay = document.querySelector('.calc-display');
 const digitNumbers = document.querySelectorAll('#digit-numbers');
 digitNumbers.forEach(element => {
@@ -84,7 +86,7 @@ digitNumbers.forEach(element => {
     });
 });
 
-// Store display symbol value
+// Store operation / operand values
 let operDisplayValue = []
 
 // Display for operator and operand
@@ -97,7 +99,7 @@ digitSymbols.forEach(element => {
     });
 });
 
-// Finish the math operation
+// TODO Finish the math operation
 const digitEquals = document.querySelector('#digit-equals');
 digitEquals.addEventListener('click', () => {
     // TODO Figure how to find the first and second number
