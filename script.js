@@ -52,26 +52,6 @@ function operate(op, a, b) {
 // Validating
 // operate();
 
-// Store display value
-let calcDisplayValue = [];
-let firstDisplayNumber = 0;
-let secondDisplayNumber = 0;
-
-// Populate the display
-const calcDisplay = document.querySelector('.calc-display');
-const digitNumbers = document.querySelectorAll('#digit-numbers, #digit-symbols');
-digitNumbers.forEach(element => {
-    element.addEventListener('click', () => {
-        // Validate digit limit
-        if (calcDisplayValue.length < 10) {
-            calcDisplayValue = calcDisplay.textContent + element.textContent;
-            calcDisplay.textContent = calcDisplayValue;
-        } else {
-            alert('No more digit space!');
-        }
-    });
-});
-
 // Clear digit screen
 const clearBtn = document.querySelector('.clear-btn');
 clearBtn.addEventListener('click', () => {
@@ -86,12 +66,41 @@ deleteBtn.addEventListener('click', () => {
     calcDisplayValue = calcDisplayValue.slice(0, -1);
 });
 
+// Store display number value
+let calcDisplayValue = [];
+
+// Populate the display
+const calcDisplay = document.querySelector('.calc-display');
+const digitNumbers = document.querySelectorAll('#digit-numbers');
+digitNumbers.forEach(element => {
+    element.addEventListener('click', () => {
+        // Validate digit limit
+        if (calcDisplayValue.length < 10) {
+            calcDisplayValue = calcDisplay.textContent + element.textContent;
+            calcDisplay.textContent = calcDisplayValue;
+        } else {
+            alert('No more digit space!');
+        }
+    });
+});
+
+// Store display symbol value
+let operDisplayValue = []
+
+// Display for operator and operand
+const operDisplay = document.querySelector('.oper-display');
+const digitSymbols = document.querySelectorAll('#digit-symbols');
+digitSymbols.forEach(element => {
+    element.addEventListener('click', () => {
+        operDisplayValue = calcDisplay.textContent + element.textContent;
+        operDisplay.textContent = operDisplayValue;
+    });
+});
+
 // Finish the math operation
 const digitEquals = document.querySelector('#digit-equals');
 digitEquals.addEventListener('click', () => {
     // TODO Figure how to find the first and second number
     // ? Maybe split the string when an operator is clicked
-    let firstNumber = calcDisplayValue.textContent.slice();
-    let secondNumber = calcDisplayValue.textContent.slice();
-    operate();
+    // operate();
 });

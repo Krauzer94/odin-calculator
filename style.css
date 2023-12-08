@@ -154,3 +154,8 @@ button:active {
         height: 68px;
     }
 }
+
+/* Operation feedback */
+.oper-display {
+    font-size: 32px;
+}
