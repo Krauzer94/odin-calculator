@@ -1,29 +1,11 @@
-// Functions for each math operation
-// Add, subctract, multiply and divide
-// Test tem directly into the console
+// Possible math operations
+function add(a, b) { return a + b; } // Add operation
+function sub(a, b) { return a - b; } // Subtract operation
+function mul(a, b) { return a * b; } // Multiply operation
+function dvd(a, b) { return a / b; } // Divide operation
 
-// Add operation
-function add(a, b) {
-    return a + b;
-}
-
-// Subtract operation
-function sub(a, b) {
-    return a - b;
-}
-
-// Multiply operation
-function mul(a, b) {
-    return a * b;
-}
-
-// Divide operation
-function dvd(a, b) {
-    return a / b;
-}
-
-// Two number math operation / operand
-function operate(op, a, b) {
+// Two numbers operation
+function operate(a, op, b) {
     let res = 0; // For later return
     a = Number(firstNumber);
     op = operandSymbol;
@@ -49,24 +31,27 @@ function operate(op, a, b) {
     }
 }
 
-// Validating
-// operate();
-
-// Reset screen values and display
-const clearBtn = document.querySelector('.clear-btn');
-clearBtn.addEventListener('click', () => {
+// Reset screen values
+function clearButton() {
     calcDisplay.textContent = '';
     calcDisplayValue = [];
     operDisplay.textContent = '';
     operDisplayValue = [];
-});
+}
 
-// Erase single inputted digits
-const deleteBtn = document.querySelector('.delete-btn');
-deleteBtn.addEventListener('click', () => {
+// clearButton trigger
+const clearBtn = document.querySelector('.clear-btn')
+clearBtn.addEventListener('click', () => { clearButton(); });
+
+// Erase single digits
+function deleteButton() {
     calcDisplay.textContent = calcDisplay.textContent.slice(0, -1);
     calcDisplayValue = calcDisplayValue.slice(0, -1);
-});
+}
+
+// deleteButton trigger
+const deleteBtn = document.querySelector('.delete-btn');
+deleteBtn.addEventListener('click', () => { deleteButton() });
 
 // Store display input values
 let calcDisplayValue = [];
@@ -89,7 +74,7 @@ digitNumbers.forEach(element => {
 // Display current input
 let operDisplayValue = [];
 
-// Numbers and operator values storage
+// Numbers and operator storage
 let firstNumber = [], operandSymbol = '', operatorSymbol = [];
 
 // Display for operator and operand
@@ -102,7 +87,7 @@ digitSymbols.forEach(element => {
 
         // Trim number / operator values
         firstNumber = calcDisplayValue;
-        operandSymbol = operDisplayValue[operDisplayValue.length -1];
+        operandSymbol = operDisplayValue[operDisplayValue.length - 1];
 
         // Reset display value input
         calcDisplay.textContent = '';
