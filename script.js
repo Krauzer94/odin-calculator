@@ -25,9 +25,9 @@ function dvd(a, b) {
 // Two number math operation / operand
 function operate(op, a, b) {
     let res = 0; // For later return
-    a = Number(prompt('First number:'));
-    op = prompt('Chose one operation:\n( + ) for a sum\n( - ) for a subtraction\n( * ) for a multiplication\n( / ) for a division');
-    b = Number(prompt('Second number:'));
+    a = Number(firstNumber);
+    op = operandSymbol;
+    b = Number(secondNumber);
 
     switch (op) {
         case '+':
@@ -86,8 +86,11 @@ digitNumbers.forEach(element => {
     });
 });
 
-// Store operation / operand values
-let operDisplayValue = []
+// Display current input
+let operDisplayValue = [];
+
+// Numbers and operator values storage
+let firstNumber = [], operandSymbol = '', operatorSymbol = [];
 
 // Display for operator and operand
 const operDisplay = document.querySelector('.oper-display');
@@ -96,13 +99,21 @@ digitSymbols.forEach(element => {
     element.addEventListener('click', () => {
         operDisplayValue = calcDisplay.textContent + element.textContent;
         operDisplay.textContent = operDisplayValue;
+
+        // Trim number / operator values
+        firstNumber = calcDisplayValue;
+        operandSymbol = operDisplayValue[operDisplayValue.length -1];
+
+        // Reset display value input
+        calcDisplay.textContent = '';
+        calcDisplayValue = [];
     });
 });
 
 // TODO Finish the math operation
 const digitEquals = document.querySelector('#digit-equals');
 digitEquals.addEventListener('click', () => {
-    // TODO Figure how to find the first and second number
-    // ? Maybe split the string when an operator is clicked
-    // operate();
+    // Trim second number for operation
+    secondNumber = calcDisplayValue;
+    operate(firstNumber, operandSymbol, secondNumber);
 });
