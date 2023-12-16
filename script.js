@@ -8,21 +8,17 @@ function dvd(a, b) { return a / b; } // Divide operation
 function operate(a, op, b) {
     let res = 0; // For later return
     a = Number(firstNumber);
-    op = operandSymbol;
+    op = operatorValue;
     b = Number(secondNumber);
     switch (op) {
         case '+':
-            res = add(a, b);
-            return alert(`${a} ${op} ${b} = ${res}`);
+            return res = add(a, b);
         case '-':
-            res = sub(a, b);
-            return alert(`${a} ${op} ${b} = ${res}`);
-        case '*':
-            res = mul(a, b);
-            return alert(`${a} ${op} ${b} = ${res}`);
-        case '/':
-            res = dvd(a, b);
-            return alert(`${a} ${op} ${b} = ${res}`);
+            return res = sub(a, b);
+        case 'x':
+            return res = mul(a, b);
+        case '÷':
+            return res = dvd(a, b);
     }
 }
 
@@ -58,11 +54,12 @@ digitNumbers.forEach(element => {
     });
 });
 
-// Display for operator and operand
-let operDisplayValue = []; // Display current input
+// Initialize operation variables
+let operDisplayValue = []; // Display current operation
 let firstNumber = [];      // Store first number value
-let operandSymbol = '';    // Store operator value
-let operatorSymbol = [];   // Display operator symbol
+let operatorValue = '';    // Store operator value
+
+// Two number operation
 const operDisplay = document.querySelector('.oper-display');
 const digitSymbols = document.querySelectorAll('#digit-symbols');
 digitSymbols.forEach(element => {
@@ -71,17 +68,20 @@ digitSymbols.forEach(element => {
         operDisplay.textContent = operDisplayValue;
         // Trim number and operator values
         firstNumber = calcDisplayValue;
-        operandSymbol = operDisplayValue[operDisplayValue.length - 1];
+        operatorValue = operDisplayValue[operDisplayValue.length - 1];
         // Reset display value input
         calcDisplay.textContent = '';
         calcDisplayValue = [];
     });
 });
 
-// TODO Finish the math operation
+// Display operation result
+let secondNumber = []; // Store second number value
 const digitEquals = document.querySelector('#digit-equals');
 digitEquals.addEventListener('click', () => {
-    // Trim second number for operation
+    let operateResult; // Store operation result
     secondNumber = calcDisplayValue;
-    operate(firstNumber, operandSymbol, secondNumber);
+    operateResult = operate(firstNumber, operatorValue, secondNumber);
+    operDisplay.textContent = `${firstNumber}${operatorValue}${secondNumber}=`;
+    calcDisplay.textContent = `${operateResult}`;
 });
