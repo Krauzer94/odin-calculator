@@ -10,53 +10,40 @@ function operate(a, op, b) {
     a = Number(firstNumber);
     op = operandSymbol;
     b = Number(secondNumber);
-
     switch (op) {
         case '+':
             res = add(a, b);
             return alert(`${a} ${op} ${b} = ${res}`);
-            break;
         case '-':
             res = sub(a, b);
             return alert(`${a} ${op} ${b} = ${res}`);
-            break;
         case '*':
             res = mul(a, b);
             return alert(`${a} ${op} ${b} = ${res}`);
-            break;
         case '/':
             res = dvd(a, b);
             return alert(`${a} ${op} ${b} = ${res}`);
-            break;
     }
 }
 
 // Reset screen values
+const clearBtn = document.querySelector('.clear-btn');
 function clearButton() {
     calcDisplay.textContent = '';
     calcDisplayValue = [];
     operDisplay.textContent = '';
     operDisplayValue = [];
-}
-
-// clearButton trigger
-const clearBtn = document.querySelector('.clear-btn')
-clearBtn.addEventListener('click', () => { clearButton(); });
+} clearBtn.addEventListener('click', () => { clearButton(); });
 
 // Erase single digits
+const deleteBtn = document.querySelector('.delete-btn');
 function deleteButton() {
     calcDisplay.textContent = calcDisplay.textContent.slice(0, -1);
     calcDisplayValue = calcDisplayValue.slice(0, -1);
-}
-
-// deleteButton trigger
-const deleteBtn = document.querySelector('.delete-btn');
-deleteBtn.addEventListener('click', () => { deleteButton() });
-
-// Store display input values
-let calcDisplayValue = [];
+} deleteBtn.addEventListener('click', () => { deleteButton() });
 
 // Populate the display screen
+let calcDisplayValue = []; // Store display input values
 const calcDisplay = document.querySelector('.calc-display');
 const digitNumbers = document.querySelectorAll('#digit-numbers');
 digitNumbers.forEach(element => {
@@ -71,24 +58,20 @@ digitNumbers.forEach(element => {
     });
 });
 
-// Display current input
-let operDisplayValue = [];
-
-// Numbers and operator storage
-let firstNumber = [], operandSymbol = '', operatorSymbol = [];
-
 // Display for operator and operand
+let operDisplayValue = []; // Display current input
+let firstNumber = [];      // Store first number value
+let operandSymbol = '';    // Store operator value
+let operatorSymbol = [];   // Display operator symbol
 const operDisplay = document.querySelector('.oper-display');
 const digitSymbols = document.querySelectorAll('#digit-symbols');
 digitSymbols.forEach(element => {
     element.addEventListener('click', () => {
         operDisplayValue = calcDisplay.textContent + element.textContent;
         operDisplay.textContent = operDisplayValue;
-
-        // Trim number / operator values
+        // Trim number and operator values
         firstNumber = calcDisplayValue;
         operandSymbol = operDisplayValue[operDisplayValue.length - 1];
-
         // Reset display value input
         calcDisplay.textContent = '';
         calcDisplayValue = [];
