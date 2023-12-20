@@ -57,7 +57,9 @@ digitNumbers.forEach(element => {
 // Initialize operation variables
 let operDisplayValue = []; // Display current operation
 let firstNumber = [];      // Store first number value
-let operatorValue = '';    // Store operator value
+let secondNumber = [];     // Store second number value
+let operatorValue = [];    // Store operator value
+let operateResult = [];    // Store operation result
 
 // Two number operation
 const operDisplay = document.querySelector('.oper-display');
@@ -75,11 +77,9 @@ digitSymbols.forEach(element => {
     });
 });
 
-// Display operation result
-let secondNumber = []; // Store second number value
+// Result display upon equals trigger
 const digitEquals = document.querySelector('#digit-equals');
-digitEquals.addEventListener('click', () => {
-    let operateResult; // Store operation result
+digitEquals.addEventListener('click', function operateNumbers() {
     secondNumber = calcDisplayValue;
     operateResult = operate(firstNumber, operatorValue, secondNumber);
     operDisplay.textContent = `${firstNumber}${operatorValue}${secondNumber}=`;
