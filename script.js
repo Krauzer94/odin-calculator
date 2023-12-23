@@ -66,22 +66,20 @@ const operDisplay = document.querySelector('.oper-display');
 const digitSymbols = document.querySelectorAll('#digit-symbols');
 digitSymbols.forEach(element => {
     element.addEventListener('click', () => {
-        operDisplayValue = calcDisplay.textContent + element.textContent;
-        operDisplay.textContent = operDisplayValue;
-        // Trim number and operator values
-        firstNumber = calcDisplayValue;
-        operatorValue = operDisplayValue[operDisplayValue.length - 1];
-        // Reset display value input
-        calcDisplay.textContent = '';
-        calcDisplayValue = [];
+        if (element.textContent == '=') {
+            secondNumber = calcDisplayValue;
+            operateResult = operate(firstNumber, operatorValue, secondNumber);
+            operDisplay.textContent = `${firstNumber}${operatorValue}${secondNumber}=`;
+            calcDisplay.textContent = `${operateResult}`;
+        } else {
+            operDisplayValue = calcDisplay.textContent + element.textContent;
+            operDisplay.textContent = operDisplayValue;
+            // Trim number and operator values
+            firstNumber = calcDisplayValue;
+            operatorValue = operDisplayValue[operDisplayValue.length - 1];
+            // Reset display value input
+            calcDisplay.textContent = '';
+            calcDisplayValue = [];
+        }
     });
-});
-
-// Result display upon equals trigger
-const digitEquals = document.querySelector('#digit-equals');
-digitEquals.addEventListener('click', function operateNumbers() {
-    secondNumber = calcDisplayValue;
-    operateResult = operate(firstNumber, operatorValue, secondNumber);
-    operDisplay.textContent = `${firstNumber}${operatorValue}${secondNumber}=`;
-    calcDisplay.textContent = `${operateResult}`;
 });
