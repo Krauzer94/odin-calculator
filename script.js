@@ -65,12 +65,14 @@ digitSymbols.forEach(element => {
             operateResult = operate(firstNumber, operatorValue, secondNumber);
             operDisplay.textContent = `${firstNumber}${operatorValue}${secondNumber}=`;
             calcDisplay.textContent = `${operateResult}`;
-            firstNumber = operateResult;
+            firstNumber = operateResult; // Store first operation value
             operatorValue = '';
         } else {
             if (firstNumber.length && operatorValue.length) {
+                // Still manages the operation for non-empty arrays
                 firstNumber = operate(firstNumber, operatorValue, calcDisplayValue).toString();
             } else {
+                // Still manages empty arrays with previous behavior
                 firstNumber = calcDisplayValue;
             }
             operatorValue = element.textContent.trim();
