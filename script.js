@@ -6,19 +6,13 @@ function dvd(a, b) { return a / b; } // Divide operation
 
 // Two numbers operation
 function operate(a, op, b) {
-    let res = 0; // For later return
-    a = Number(firstNumber);
-    op = operatorValue;
-    b = Number(secondNumber);
+    a = Number(a);
+    b = Number(b);
     switch (op) {
-        case '+':
-            return res = add(a, b);
-        case '-':
-            return res = sub(a, b);
-        case 'x':
-            return res = mul(a, b);
-        case '÷':
-            return res = dvd(a, b);
+        case '+': return res = add(a, b);
+        case '-': return res = sub(a, b);
+        case 'x': return res = mul(a, b);
+        case '÷': return res = dvd(a, b);
     }
 }
 
@@ -71,15 +65,19 @@ digitSymbols.forEach(element => {
             operateResult = operate(firstNumber, operatorValue, secondNumber);
             operDisplay.textContent = `${firstNumber}${operatorValue}${secondNumber}=`;
             calcDisplay.textContent = `${operateResult}`;
+            firstNumber = operateResult;
+            operatorValue = '';
         } else {
-            operDisplayValue = calcDisplay.textContent + element.textContent;
+            if (firstNumber.length && operatorValue.length) {
+                firstNumber = operate(firstNumber, operatorValue, calcDisplayValue).toString();
+            } else {
+                firstNumber = calcDisplayValue;
+            }
+            operatorValue = element.textContent.trim();
+            operDisplayValue = `${firstNumber}${operatorValue}`;
             operDisplay.textContent = operDisplayValue;
-            // Trim number and operator values
-            firstNumber = calcDisplayValue;
-            operatorValue = operDisplayValue[operDisplayValue.length - 1];
-            // Reset display value input
             calcDisplay.textContent = '';
-            calcDisplayValue = [];
+            calcDisplayValue = '';
         }
     });
 });
